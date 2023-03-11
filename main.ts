@@ -4,8 +4,13 @@ namespace SpriteKind {
     export const water = SpriteKind.create()
     export const animal = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.plant2, function (sprite, otherSprite) {
+    game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
+    game.gameOver(false)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.plant1, function (sprite, otherSprite) {
     game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
+    game.gameOver(false)
 })
 function uptadeBlocks () {
     for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
@@ -33,6 +38,14 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Dino.vy == 0) {
         Dino.vy += -120
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.water, function (sprite, otherSprite) {
+    game.showLongText("Watch your step! You fell into an oasis! Oases are the only form of freshwater in the desert, and it can support plant life like palm trees and shrubs. They are also the basis of nomadic settlements.", DialogLayout.Bottom)
+    game.gameOver(false)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.animal, function (sprite, otherSprite) {
+    game.showLongText("Oh no, you ran into a camel!", DialogLayout.Bottom)
+    game.gameOver(false)
 })
 let Animal: Sprite = null
 let Water: Sprite = null
