@@ -4,30 +4,16 @@ namespace SpriteKind {
     export const water = SpriteKind.create()
     export const animal = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.plant1, function (sprite, otherSprite) {
+    game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
+})
 function uptadeBlocks () {
     for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
-        Plant1 = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . 7 . . . . . . . . 
-            . . . . . . 6 7 7 . . . . . . . 
-            . . . . . . 7 7 7 . 7 7 . . . . 
-            . . . . . . 7 7 6 . 7 6 . . . . 
-            . . . . . . 7 7 7 . 7 7 . . . . 
-            . . . 6 7 . 6 7 7 7 6 7 . . . . 
-            . . . 7 7 . 7 7 7 7 7 7 . . . . 
-            . . . 7 6 . 7 7 7 . . . . . . . 
-            . . . 7 7 7 7 7 6 . . . . . . . 
-            . . . 6 7 6 7 7 7 . . . . . . . 
-            . . . . . . 6 7 7 . . . . . . . 
-            `, SpriteKind.plant1)
+        Plant1 = sprites.create(P1I, SpriteKind.plant1)
         tiles.placeOnTile(Plant1, value)
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
-    for (let value of tiles.getTilesByType(assets.tile`myTile3`)) {
+    for (let value2 of tiles.getTilesByType(assets.tile`myTile3`)) {
         Plant2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -46,10 +32,10 @@ function uptadeBlocks () {
             . . 7 7 . 6 7 7 7 . . . 7 7 7 6 
             . . 7 6 . . . 7 6 . . . 6 7 . . 
             `, SpriteKind.plant2)
-        tiles.placeOnTile(Plant2, value)
-        tiles.setTileAt(value, assets.tile`transparency16`)
+        tiles.placeOnTile(Plant2, value2)
+        tiles.setTileAt(value2, assets.tile`transparency16`)
     }
-    for (let value of tiles.getTilesByType(assets.tile`myTile1`)) {
+    for (let value3 of tiles.getTilesByType(assets.tile`myTile1`)) {
         Water = sprites.create(img`
             .....6888888888.....
             ..8668886688888868..
@@ -72,10 +58,10 @@ function uptadeBlocks () {
             44444444444444444444
             44444444444444444444
             `, SpriteKind.water)
-        tiles.placeOnTile(Water, value)
-        tiles.setTileAt(value, assets.tile`transparency16`)
+        tiles.placeOnTile(Water, value3)
+        tiles.setTileAt(value3, assets.tile`transparency16`)
     }
-    for (let value of tiles.getTilesByType(assets.tile`myTile4`)) {
+    for (let value4 of tiles.getTilesByType(assets.tile`myTile4`)) {
         Animal = sprites.create(img`
             . . . . . . . . . . f f f f . . 
             . . . . . . . . . f 4 4 4 4 f . 
@@ -94,23 +80,34 @@ function uptadeBlocks () {
             . f 4 f . . f 4 f . . . . . . . 
             . f f f . . f f f . . . . . . . 
             `, SpriteKind.animal)
-        tiles.placeOnTile(Animal, value)
-        tiles.setTileAt(value, assets.tile`transparency16`)
+        tiles.placeOnTile(Animal, value4)
+        tiles.setTileAt(value4, assets.tile`transparency16`)
     }
 }
-/**
- * sprites.onOverlap(SpriteKind.Player, SpriteKind.plant1, function (sprite, otherSprite) {
- */
-/**
- * game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
- */
-/**
- * })
- */
 let Animal: Sprite = null
 let Water: Sprite = null
 let Plant2: Sprite = null
 let Plant1: Sprite = null
+let P1I: Image = null
+P1I = image.create(16, 16)
+P1I = img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . 7 . . . . . . . . 
+    . . . . . . 6 7 7 . . . . . . . 
+    . . . . . . 7 7 7 . 7 6 . . . . 
+    . . . . . . 7 7 6 . 7 7 . . . . 
+    . . . . . . 6 7 7 7 7 7 . . . . 
+    . . . . . . 7 7 7 7 6 7 . . . . 
+    . . . 6 7 . 7 7 7 . . . . . . . 
+    . . . 7 7 . 6 7 7 . . . . . . . 
+    . . . 7 6 7 7 7 7 . . . . . . . 
+    . . . 7 7 7 7 7 7 . . . . . . . 
+    . . . . . . 7 7 6 . . . . . . . 
+    `
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
