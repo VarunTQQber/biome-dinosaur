@@ -43,8 +43,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.water, function (sprite, otherSp
     game.showLongText("Watch your step! You fell into an oasis! Oases are the only form of freshwater in the desert, and it can support plant life like palm trees and shrubs. They are also the basis of nomadic settlements.", DialogLayout.Bottom)
     game.gameOver(false)
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    game.gameOver(true)
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.animal, function (sprite, otherSprite) {
-    game.showLongText("Oh no, you ran into a camel!", DialogLayout.Bottom)
+    game.showLongText("Oh no, you ran into a camel! Camels are one of the most abundant desert animals, along with reptiles like lizards. They have developed adaptations to live in the desert, such as having clear eyelids to keep sand out of their eyes and storing fat in their humps so they can go a long time without food.", DialogLayout.Bottom)
     game.gameOver(false)
 })
 let Animal: Sprite = null
