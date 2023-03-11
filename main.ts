@@ -44,12 +44,43 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.water, function (sprite, otherSp
     game.gameOver(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
+    wins += 1
+    tiles.setTileAt(location, assets.tile`transparency16`)
+    if (wins == 1) {
+        tiles.setCurrentTilemap(tilemap`level3`)
+        P1I = img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 7 6 7 7 7 6 . . . . . 
+            . . . . d 7 7 7 6 e 7 . . . . . 
+            . . . d d d 7 e e e 7 e . . . . 
+            . . . d d d e e e e e e . . . . 
+            . . . d d d e e e e e e . . . . 
+            . . . . d e e e e e e . . . . . 
+            `
+        P2I = 0
+        WI = 0
+        AI = 0
+    } else if (wins == 2) {
+        tiles.setCurrentTilemap(tilemap`level3`)
+    } else {
+        tiles.setCurrentTilemap(tilemap`level1`)
+    }
     game.gameOver(true)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.animal, function (sprite, otherSprite) {
     game.showLongText("Oh no, you ran into a camel! Camels are one of the most abundant desert animals, along with reptiles like lizards. They have developed adaptations to live in the desert, such as having clear eyelids to keep sand out of their eyes and storing fat in their humps so they can go a long time without food.", DialogLayout.Bottom)
     game.gameOver(false)
 })
+let wins = 0
 let Animal: Sprite = null
 let Water: Sprite = null
 let Plant2: Sprite = null
