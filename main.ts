@@ -589,7 +589,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.water, function (sprite, otherSp
     game.gameOver(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
-    wins += 1
+    if (wins < 3) {
+        wins += 1
+    } else {
+        wins = 0
+    }
     uptadeBlocks()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.animal, function (sprite, otherSprite) {
@@ -600,12 +604,13 @@ let Animal: Sprite = null
 let Water: Sprite = null
 let Plant2: Sprite = null
 let Plant1: Sprite = null
-let wins = 0
 let AI: Image = null
 let WI: Image = null
 let P2I: Image = null
 let P1I: Image = null
 let Dino: Sprite = null
+let wins = 0
+wins = 3
 Dino = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . f f f . . . . . . 
