@@ -540,6 +540,13 @@ function uptadeBlocks () {
         tiles.setCurrentTilemap(tilemap`level3`)
     }
     tiles.placeOnRandomTile(Dino, assets.tile`myTile6`)
+    if (wins == 0) {
+        game.showLongText("Welcome to the desert!", DialogLayout.Bottom)
+    } else if (wins == 1) {
+        game.showLongText("Welcome to the tundra!", DialogLayout.Bottom)
+    } else {
+        game.showLongText("Welcome to the marine!", DialogLayout.Bottom)
+    }
     for (let value of tiles.getTilesByType(assets.tile`myTile6`)) {
         tiles.setTileAt(value, assets.tile`transparency16`)
     }
@@ -589,10 +596,18 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.water, function (sprite, otherSp
     game.gameOver(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
-    if (wins < 3) {
+    if (wins == 0) {
         wins += 1
+        game.showLongText("You beat the desert!", DialogLayout.Bottom)
+        game.showLongText("Travelling to the tundra...", DialogLayout.Bottom)
+    } else if (wins == 1) {
+        wins += 1
+        game.showLongText("You beat the tundra!", DialogLayout.Bottom)
+        game.showLongText("Travelling to the marine...", DialogLayout.Bottom)
     } else {
         wins = 0
+        game.showLongText("You beat the tundra!", DialogLayout.Bottom)
+        game.showLongText("Travelling back to the desert...", DialogLayout.Bottom)
     }
     uptadeBlocks()
 })
@@ -610,7 +625,7 @@ let P2I: Image = null
 let P1I: Image = null
 let Dino: Sprite = null
 let wins = 0
-wins = 3
+wins = 0
 Dino = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . f f f . . . . . . 
