@@ -9,7 +9,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.plant2, function (sprite, otherS
     game.gameOver(false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.plant1, function (sprite, otherSprite) {
-    game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
+    if (wins == 0) {
+        game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
+    } else if (wins == 1) {
+        game.showLongText("Watch your feet, you stepped on a mossy log!", DialogLayout.Bottom)
+    } else {
+        game.showLongText("Watch where you're going, you ran into a phytoplankton!", DialogLayout.Bottom)
+    }
     game.gameOver(false)
 })
 function uptadeBlocks () {
@@ -592,7 +598,13 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.water, function (sprite, otherSprite) {
-    game.showLongText("Watch your step! You fell into an oasis! Oases are the only form of freshwater in the desert, and it can support plant life like palm trees and shrubs. They are also the basis of nomadic settlements.", DialogLayout.Bottom)
+    if (wins == 0) {
+        game.showLongText("Watch your step! You fell into an oasis! Oases are the only form of freshwater in the desert, and it can support plant life like palm trees and shrubs. They are also the basis of nomadic settlements.", DialogLayout.Bottom)
+    } else if (wins == 1) {
+        game.showLongText("It may be cold here but you still found a freshwater lake!", DialogLayout.Bottom)
+    } else {
+        game.showLongText("Watch your step! You fell through a hole in the ground!", DialogLayout.Bottom)
+    }
     game.gameOver(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
