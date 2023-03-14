@@ -785,7 +785,7 @@ let P2I: Image = null
 let P1I: Image = null
 let Dino: Sprite = null
 let wins = 0
-wins = 2
+wins = 0
 Dino = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . f f f . . . . . . 
