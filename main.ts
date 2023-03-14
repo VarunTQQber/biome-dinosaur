@@ -19,7 +19,6 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.plant1, function (sprite, otherS
     game.gameOver(false)
 })
 function uptadeBlocks () {
-    scene.cameraFollowSprite(Dino)
     if (wins == 0) {
         P1I = img`
             . . . . . . . . . . . . . . . . 
@@ -546,6 +545,7 @@ function uptadeBlocks () {
         tiles.setCurrentTilemap(tilemap`level3`)
     }
     tiles.placeOnRandomTile(Dino, assets.tile`myTile6`)
+    scene.cameraFollowSprite(Dino)
     if (wins == 0) {
         game.showLongText("Welcome to the desert! This is a biome with little precipitation, with the maximum being about 25 cm. Since it is near the equator, the desert receives pretty high amounts of solar radiation, and temperatures can range from 38 degrees Celsius in the day to -4 degrees Celsius in the night. Unique features of the desert is that it is very arid and dry, with it's evaporation usually being greater than its precipitation, and its soil being primarily sand and very low in nutrition for plants.", DialogLayout.Bottom)
     } else if (wins == 1) {
@@ -618,7 +618,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
         game.showLongText("Travelling to the marine...", DialogLayout.Bottom)
     } else {
         wins = 0
-        game.showLongText("You beat the tundra!", DialogLayout.Bottom)
+        game.showLongText("You beat the marine!", DialogLayout.Bottom)
         game.showLongText("Travelling back to the desert...", DialogLayout.Bottom)
     }
     uptadeBlocks()
