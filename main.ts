@@ -762,7 +762,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
         wins = 0
         game.showLongText("Congratulations! You beat the game!", DialogLayout.Bottom)
         game.gameOver(true)
-        //game.showLongText("Travelling back to the desert...", DialogLayout.Bottom)
     }
     uptadeBlocks()
 })
@@ -786,7 +785,7 @@ let P2I: Image = null
 let P1I: Image = null
 let Dino: Sprite = null
 let wins = 0
-wins = 0
+wins = 2
 Dino = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . f f f . . . . . . 
