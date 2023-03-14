@@ -5,16 +5,22 @@ namespace SpriteKind {
     export const animal = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.plant2, function (sprite, otherSprite) {
-    game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss. Unique features of the tundra is that the soil is again low in nutrition, which consists of a thin layer of topsoil on top of permafrost, and because of this is low in biodiversity.", DialogLayout.Bottom)
+    if (wins == 0) {
+        game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss. Unique features of the tundra is that the soil is again low in nutrition, which consists of a thin layer of topsoil on top of permafrost, and because of this is low in biodiversity.", DialogLayout.Bottom)
+    } else if (wins == 1) {
+    	
+    } else {
+    	
+    }
     game.gameOver(false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.plant1, function (sprite, otherSprite) {
     if (wins == 0) {
         game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
     } else if (wins == 1) {
-        game.showLongText("Watch your feet, you stepped on a mossy log!", DialogLayout.Bottom)
+        game.showLongText("Watch your feet, you stepped on a mossy log! Even though the conditions in the tundra make it really hard to grow plants, mosses are able to grow because of its short height. It has adapted to the conditions of the tundra by being able to draw out the nutrients from shallow ground and by growing short to survive the winters.", DialogLayout.Bottom)
     } else {
-        game.showLongText("Watch where you're going, you ran into a phytoplankton!", DialogLayout.Bottom)
+        game.showLongText("Watch where you're going, you ran into some wildflowers! Apart from a few trees, grasses and wildflowers are the primary vegetation in the grassland. They grow well because there is a lot of sun, and they grow best during the spring and fall.", DialogLayout.Bottom)
     }
     game.gameOver(false)
 })
@@ -270,9 +276,9 @@ function uptadeBlocks () {
             ................................................
             ................................................
             9...............................................
-            991............................................9
-            11111........................................199
-            11111.......888..........88......888.......11111
+            999............................................9
+            99999........................................999
+            11111.......888..........88......888.......99999
             111111...88866888....888888888.8886688.....11111
             111111.888668888888888666888888888886688..111111
             111111188688888888888888866688888888886688111111
@@ -737,9 +743,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.water, function (sprite, otherSp
     if (wins == 0) {
         game.showLongText("Watch your step! You fell into an oasis! Oases are the only form of freshwater in the desert, and it can support plant life like palm trees and shrubs. They are also the basis of nomadic settlements.", DialogLayout.Bottom)
     } else if (wins == 1) {
-        game.showLongText("Oops! You fell in the ocean! Even though the tundra ice in freshwater, the ocean in still saltwater, and it's also really cold.", DialogLayout.Bottom)
+        game.showLongText("Oops! You fell in the ocean! Even though the tundra ice in freshwater, the ocean in still saltwater, and it's also really cold as well. The animals of the tundra have adapted well, mainly by having a layer of blubber/fat in them to insulate them. ", DialogLayout.Bottom)
     } else {
-        game.showLongText("Watch your step! You fell through a hole in the ground!", DialogLayout.Bottom)
+        game.showLongText("Watch your step! You fell in a stream! These freshwater streams/rivers help fertilize the soil for the grass to grow, and can also support limited vegetation. The fertilized soil also helps the animals get grass to graze.", DialogLayout.Bottom)
     }
     game.gameOver(false)
 })
@@ -765,7 +771,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.animal, function (sprite, otherS
     } else if (wins == 1) {
         game.showLongText("Oops, you ran into a polar bear! Polar bears are the most well-known arctic animals, and have adapted to living in cold temperatures. They have a thick layer of fur to keep them warm in frigid weather and cold water, and also have sharp claws to help pull food out of the water.", DialogLayout.Bottom)
     } else {
-        game.showLongText("Careful! You swam into a shark!", DialogLayout.Bottom)
+        game.showLongText("Careful! You ran into a bison! Bison are wild grazers, so naturally they live best where there is a lot of grass. They have adapted to life on the grassland by having flat teeth to chew grass and digestive systems suited for processing vegetation.", DialogLayout.Bottom)
     }
     game.gameOver(false)
 })
@@ -779,7 +785,7 @@ let P2I: Image = null
 let P1I: Image = null
 let Dino: Sprite = null
 let wins = 0
-wins = 1
+wins = 0
 Dino = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . f f f . . . . . . 
