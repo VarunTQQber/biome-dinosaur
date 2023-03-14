@@ -6,11 +6,11 @@ namespace SpriteKind {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.plant2, function (sprite, otherSprite) {
     if (wins == 0) {
-        game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss. Unique features of the tundra is that the soil is again low in nutrition, which consists of a thin layer of topsoil on top of permafrost, and because of this is low in biodiversity.", DialogLayout.Bottom)
+        game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
     } else if (wins == 1) {
-    	
+        game.showLongText("Better look down next time! you stepped on some dwarf trees! These dwarf trees, specifically the dwarf willow, are some of the world's smallest trees, only growing to about two inches tall. Its height also helps it in the tundra, because it is able to avoid harsh winds, and its leaves are broad to maximiz the amount of sunlight it gets.", DialogLayout.Bottom)
     } else {
-    	
+        game.showLongText("Oof! You bumped into an acacia tree! Although grasslands are primarily made of grasses, acacia trees are one of the few exceptions, They adapt by having long, deep roots that can reach underground water sources, and they are also fire-resistant.", DialogLayout.Bottom)
     }
     game.gameOver(false)
 })
@@ -691,9 +691,9 @@ function uptadeBlocks () {
     if (wins == 0) {
         game.showLongText("Welcome to the desert! This is a biome with little precipitation, with the maximum being about 25 cm. Since it is near the equator, the desert receives pretty high amounts of solar radiation, and temperatures can range from 38 degrees Celsius in the day to -4 degrees Celsius in the night. Unique features of the desert is that it is very arid and dry, with it's evaporation usually being greater than its precipitation, and its soil being primarily sand and very low in nutrition for plants.", DialogLayout.Bottom)
     } else if (wins == 1) {
-        game.showLongText("Welcome to the tundra! This biome also has similar precipitation levels as the desert, but is significantly colder as it is closer to the poles. It receives very little solar radiation, and temperatures can range from 18 and -40 degrees Celsius.", DialogLayout.Bottom)
+        game.showLongText("Welcome to the tundra! This biome also has similar precipitation levels as the desert, but is significantly colder as it is closer to the poles. It receives very little solar radiation, and temperatures can range from 18 and -40 degrees Celsius. Unique features of the tundra is that the soil is again low in nutrition, which consists of a thin layer of topsoil on top of permafrost, and because of this is low in biodiversity.", DialogLayout.Bottom)
     } else {
-        game.showLongText("Welcome to the grasslands!", DialogLayout.Bottom)
+        game.showLongText("Welcome to the grasslands! This biome ", DialogLayout.Bottom)
     }
     for (let value of tiles.getTilesByType(assets.tile`myTile6`)) {
         tiles.setTileAt(value, assets.tile`transparency16`)
