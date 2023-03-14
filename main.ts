@@ -5,7 +5,7 @@ namespace SpriteKind {
     export const animal = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.plant2, function (sprite, otherSprite) {
-    game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss.", DialogLayout.Bottom)
+    game.showLongText("Ouch! You ran in to a cactus! Cacti, along with other succulents are one of, if not the most abundant plants in the desert. They have a number of adaptations to make them suitable for the desert, including having wider roots and spines for leaves to reduce water loss. Unique features of the tundra is that the soil is again low in nutrition, which consists of a thin layer of topsoil on top of permafrost, and because of this is low in biodiversity.", DialogLayout.Bottom)
     game.gameOver(false)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.plant1, function (sprite, otherSprite) {
@@ -547,9 +547,9 @@ function uptadeBlocks () {
     }
     tiles.placeOnRandomTile(Dino, assets.tile`myTile6`)
     if (wins == 0) {
-        game.showLongText("Welcome to the desert!", DialogLayout.Bottom)
+        game.showLongText("Welcome to the desert! This is a biome with little precipitation, with the maximum being about 25 cm. Since it is near the equator, the desert receives pretty high amounts of solar radiation, and temperatures can range from 38 degrees Celsius in the day to -4 degrees Celsius in the night. Unique features of the desert is that it is very arid and dry, with it's evaporation usually being greater than its precipitation, and its soil being primarily sand and very low in nutrition for plants.", DialogLayout.Bottom)
     } else if (wins == 1) {
-        game.showLongText("Welcome to the tundra!", DialogLayout.Bottom)
+        game.showLongText("Welcome to the tundra! This biome also has similar precipitation levels as the desert, but is significantly colder as it is closer to the poles. It receives very little solar radiation, and temperatures can range from 18 and -40 degrees Celsius.", DialogLayout.Bottom)
     } else {
         game.showLongText("Welcome to the marine!", DialogLayout.Bottom)
     }
@@ -624,7 +624,13 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
     uptadeBlocks()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.animal, function (sprite, otherSprite) {
-    game.showLongText("Oh no, you ran into a camel! Camels are one of the most abundant desert animals, along with reptiles like lizards. They have developed adaptations to live in the desert, such as having clear eyelids to keep sand out of their eyes and storing fat in their humps so they can go a long time without food.", DialogLayout.Bottom)
+    if (wins == 0) {
+        game.showLongText("Oh no, you ran into a camel! Camels are one of the most abundant desert animals, along with reptiles like lizards. They have developed adaptations to live in the desert, such as having clear eyelids to keep sand out of their eyes and storing fat in their humps so they can go a long time without food.", DialogLayout.Bottom)
+    } else if (wins == 1) {
+        game.showLongText("Oops, you ran into a polar bear! Polar bears are the most well-known arctic animals, and have adapted to living in cold temperatures. They have a thick layer of fur to keep them warm in frigid weather and cold water, and also have sharp claws to help pull food out of the water.", DialogLayout.Bottom)
+    } else {
+        game.showLongText("Whoops! You swam into a shark!", DialogLayout.Bottom)
+    }
     game.gameOver(false)
 })
 let Animal: Sprite = null
